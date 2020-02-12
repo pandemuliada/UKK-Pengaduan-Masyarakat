@@ -1,6 +1,5 @@
 <?php 
   include_once 'init.php';
-  session_start();
 
   if (isset($_POST["login"])) {
     // If data valid
