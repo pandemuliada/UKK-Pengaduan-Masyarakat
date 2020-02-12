@@ -5,18 +5,32 @@
     protected static $columns = ['*'];
     protected static $table;
 
-    public static function all($extend_query = "")
+    public static function first($extend_query = "")
     {
       $DB = new Database();
-      $DB->connect();
       $table = strtolower(static::$table);
       $columns = join(",", static::$columns);
 
-      $stmt = $DB->query("SELECT $columns FROM $table $extend_query");
-      $res = $stmt->fetchAll();
+      $stmt = $DB->connect()->query("SELECT $columns FROM $table $extend_query");
+      $res = $stmt->fetch();
+      
+      return $res;
       
       $DB->disconnect();
+    }
+
+    public static function all($extend_query = "")
+    {
+      $DB = new Database();
+      $table = strtolower(static::$table);
+      $columns = join(",", static::$columns);
+
+      $stmt = $DB->connect()->query("SELECT $columns FROM $table $extend_query");
+      $res = $stmt->fetchAll();
+      
       return $res;
+      
+      $DB->disconnect();
     }
 
     public static function insert($params = []) 
@@ -39,7 +53,6 @@
     public static function update($params = [], $identifiers = [])
     {
       $DB = new Database();
-      $DB->connect();
 
       $table = strtolower(static::$table);
 
@@ -77,7 +90,6 @@
     public static function delete($identifiers = [])
     {
       $DB = new Database();
-      $DB->connect();
 
       $table = strtolower(static::$table);
       

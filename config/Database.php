@@ -31,12 +31,12 @@
 
     public function query($sql_query)
     {
-      return $this->connection->query($sql_query);
+      return $this->connect()->query($sql_query);
     }
 
     public function getAll($table)
     {
-      return $this->connection->query("SELECT * FROM $table")->fetchAll();
+      return $this->connect()->query("SELECT * FROM $table")->fetchAll();
     }
 
   }
