@@ -3,6 +3,7 @@
   include_once "controller/Auth.php";
   include_once "model/ORM.php";
   include_once "model/Masyarakat.php";
+  include_once "model/Petugas.php";
   include_once "model/Pengaduan.php";
 
   $DB = new Database();

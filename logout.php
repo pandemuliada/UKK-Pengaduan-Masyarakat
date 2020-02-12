@@ -3,7 +3,7 @@
   $logout = $Auth->logout();
 
   if ($logout) {
-    header("Location: login.php");
+    header("Location: index.php");
   }
   session_destroy();
 

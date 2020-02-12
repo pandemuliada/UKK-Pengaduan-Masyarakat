@@ -16,7 +16,7 @@
   </div>
   
   <div>
-    <a href="./admin/login.php">Login Admin & Petugas</a>
+    <a href="./login-petugas.php">Login Petugas</a>
   </div>
 
 </body>
