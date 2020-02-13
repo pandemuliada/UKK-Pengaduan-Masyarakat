@@ -22,6 +22,7 @@
       <li>
         <h3><?= $item->judul_pengaduan ?></h3>
         <p><?= $item->isi_pengaduan ?></p>
+        <p>Status : <?= $item->status ?></p>
       </li>
     <?php endforeach ?>    
   </ul>

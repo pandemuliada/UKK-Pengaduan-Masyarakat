@@ -5,6 +5,7 @@
   include_once "model/Masyarakat.php";
   include_once "model/Petugas.php";
   include_once "model/Pengaduan.php";
+  include_once "model/Tanggapan.php";
 
   $DB = new Database();
   $Auth = new Auth();
