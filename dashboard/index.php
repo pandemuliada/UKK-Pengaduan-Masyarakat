@@ -19,7 +19,7 @@
 
   <ul>
     <?php if ($Auth->current_user()->level == "admin") : ?>
-      <li><a href="create-petugas.php">Tambah Petugas</a></li>
+      <li><a href="petugas/index.php">Daftar Petugas</a></li>
       <li><a href="list-pengaduan.php">Daftar Pengaduan</a></li>
       <li><a href="laporan.php">Laporan</a></li>
     <?php endif ?>
