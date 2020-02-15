@@ -15,7 +15,7 @@
     $create_tanggapan = Tanggapan::insert($data_tanggapan);
 
     $data_pengaduan = [
-      "status" => $_POST["status"]
+      "status" => "selesai"
     ];
 
     $update_pengaduan = Pengaduan::update(
@@ -30,8 +30,6 @@
     }
 
   }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -52,17 +50,6 @@
       <br>
       <textarea name="isi_tanggapan" cols="30" rows="10"></textarea>
     </div>
-    
-    <div>
-      <label for="">Status Tanggapan</label>
-      <br>
-      <select name="status">
-        <option value="ditolak" <?= $pengaduan->status == "ditolak" ? 'selected' : ''?>>Ditolak</option>
-        <option value="proses" <?= $pengaduan->status == "proses" ? 'selected' : ''?>>Diproses</option>
-        <option value="selesai" <?= $pengaduan->status == "selesai" ? 'selected' : ''?>>Selesai</option>
-      </select>
-    </div>
-
     <br>
     <button type="submit" name="save">Simpan</button>
   </form>

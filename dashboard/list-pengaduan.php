@@ -25,6 +25,7 @@
         <?php endif ?>
         <?php if ($item->status == "selesai") : ?>
           <span style="background: #02b3e4; display: inline-block; padding: 5px; border-radius: 5px; color: white; margin-top: 5px">Telah ditanggapi</span>
+          <a href="./detail-laporan.php?id_pengaduan=<?= $item->id_pengaduan ?>">Lihat Detail</a>
         <?php endif ?>
       </div>
     <?php endforeach ?>
