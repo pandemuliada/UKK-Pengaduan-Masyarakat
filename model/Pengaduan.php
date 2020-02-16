@@ -1,6 +1,6 @@
 <?php 
 
-  class Pengaduan extends ORM
+  class Pengaduan extends Model
   {
     protected static $table = "pengaduan";
     protected static $columns = ["*"];

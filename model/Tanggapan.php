@@ -1,6 +1,6 @@
 <?php
 
-  class Tanggapan extends ORM
+  class Tanggapan extends Model
   {
     protected static $table = "tanggapan";
     protected static $columns = ["*"];

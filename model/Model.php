@@ -1,5 +1,5 @@
 <?php 
-  class ORM
+  class Model
   {
     // protected static $table;
     protected static $columns = ['*'];
@@ -93,8 +93,6 @@
 
       $table = strtolower(static::$table);
       
-      $bindParam = [];
-
       $delete_identifier = "";
       foreach ($identifiers as $key => $value) {
         $delete_identifier .= $key . "=:" . $key;
