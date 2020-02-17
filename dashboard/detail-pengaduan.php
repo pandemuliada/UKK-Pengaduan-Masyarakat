@@ -14,17 +14,6 @@
 
     $create_tanggapan = Tanggapan::insert($data_tanggapan);
 
-    $data_pengaduan = [
-      "status" => "selesai"
-    ];
-
-    $update_pengaduan = Pengaduan::update(
-      $data_pengaduan, 
-      [
-        "id_pengaduan" => $id_pengaduan 
-      ]
-    );
-
     if ($create_tanggapan && $update_pengaduan) {
       header("Location: list-pengaduan.php");
     }
