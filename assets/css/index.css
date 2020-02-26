@@ -1,0 +1,24 @@
+*, html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.title-1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.2rem;
+}
+
+
+.button-primary {
+  background-color: #02b3e4;
+  padding: .6rem 1.1rem;
+  color: white;
+}

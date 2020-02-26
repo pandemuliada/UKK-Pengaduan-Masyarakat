@@ -12,19 +12,27 @@
       
       // Set current user
       $Auth->set_current_user($login_user);
+      $Auth->set_login_status(true);
       
       // Redirect to home if login success
       if ($Auth->current_user()) {
-        header("Location: home.php");
+        redirect("home.php");
       }
-
     } else {
       echo "Tolong masukan data yang valid";
     }
   }
   
-  // Redirect back to homepage if ser already logged in
-  if ($Auth->current_user()) header("Location: home.php");
+  // Check login status
+  if ($Auth->is_login()) {
+    // If current user has level property (admin, petugas), redirect to dashboard page
+    // Else (masyarakat), redirect to homepage 
+    if (isset($Auth->current_user()->level)) {
+      redirect("/dashboard/index.php");
+    } else if (!isset($Auth->current_user()->level)){
+      redirect("/home.php");
+    }
+  }
 
 ?>
 

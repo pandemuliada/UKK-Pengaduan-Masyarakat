@@ -14,6 +14,7 @@
       // Set current user
       if ($login_user) {
         $Auth->set_current_user($login_user);
+        $Auth->set_login_status(true);
       } else {
         echo "Login gagal, masukan data yang valid";
       }
@@ -27,7 +28,16 @@
     }
   }
 
-  if ($Auth->current_user()) header("Location: dashboard");
+  // Check login status
+  if ($Auth->is_login()) {
+    // If current user has level property (admin, petugas), redirect to dashboard page
+    // Else (masyarakat), redirect to homepage 
+    if (isset($Auth->current_user()->level)) {
+      redirect("/dashboard/index.php");
+    } else if (!isset($Auth->current_user()->level)){
+      redirect("/home.php");
+    }
+  }
 
 
 ?>

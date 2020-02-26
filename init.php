@@ -7,6 +7,8 @@
   include_once "model/Pengaduan.php";
   include_once "model/Tanggapan.php";
 
+  include_once "functions.php";
+
   $DB = new Database;
   $Auth = new Auth;
 ?>
