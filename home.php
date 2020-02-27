@@ -10,18 +10,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buat Pengaduan</title>
+  <link rel="stylesheet" href="<?= url('/assets/css/index.css') ?>">
 </head>
 <body>
-  <h1>Halo, <?= $Auth->current_user()->nama ?></h1>
-  <p>Apakah anda ingin membuat pengaduan?</p>
-  <ul>
-    <li>
-      <a href="create-pengaduan.php">Buat Pengaduan</a>
-    </li>
-    <li>
-      <a href="list-tanggapan.php">Daftar Laporan</a>
-    </li>
-  </ul>
-  <a href="logout.php">Logout</a>
+  <div class='container' style="margin: 50px auto">
+    <h1 class='title-1'>Halo, <?= $Auth->current_user()->nama ?></h1>
+    <p>Apakah anda ingin membuat pengaduan?</p>
+    <br>
+    <ul>
+      <li>
+        <a href="create-pengaduan.php">Buat Pengaduan</a>
+      </li>
+      <li>
+        <a href="history-pengaduan.php">Riwayat  Pengaduan</a>
+      </li>
+      <li>
+        <a href="list-tanggapan.php">Daftar Laporan</a>
+      </li>
+    </ul>
+    <a href="logout.php">Logout</a>
+  </div>
 </body>
 </html>

@@ -16,9 +16,38 @@ a {
   margin-bottom: 1.2rem;
 }
 
+.block {
+  width: 100%;
+  display: block;
+}
 
 .button-primary {
   background-color: #02b3e4;
   padding: .6rem 1.1rem;
   color: white;
+  border: none;
+}
+
+.field-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.label {
+  margin-bottom: 5px;
+}
+
+.input {
+  width: 100%;
+  padding: 4px 8px;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+ul {
+  list-style: none;
 }

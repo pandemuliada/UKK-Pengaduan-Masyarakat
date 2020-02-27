@@ -24,7 +24,6 @@
   
   <style>
     #landingPage {
-      background-color: red;
       background-image: url("./assets/image/landing-bg.jpg");
       background-size: cover;
       height: 100vh;
