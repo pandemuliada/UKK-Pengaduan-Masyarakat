@@ -25,7 +25,7 @@
         <a href="history-pengaduan.php">Riwayat  Pengaduan</a>
       </li>
       <li>
-        <a href="list-tanggapan.php">Daftar Laporan</a>
+        <a href="list-tanggapan.php">Daftar Tanggapan</a>
       </li>
     </ul>
     <a href="logout.php">Logout</a>

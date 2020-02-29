@@ -30,9 +30,8 @@
 
           <h3 class='title-3' style="font-weight: 500"><?= $item->judul_pengaduan ?></h3>
           <p><?= $item->isi_pengaduan ?></p>
-          <p>Status : <?= $item->status ?></p>
           <br>
-          <a href="detail-pengaduan.php?id_pengaduan=<?= $item->id_pengaduan ?>">Detail</a>
+          <p>Status : <?= $item->status ?></p>
         </li>
 
       <?php endforeach ?>    
