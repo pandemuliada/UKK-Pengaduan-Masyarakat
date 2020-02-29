@@ -1,31 +1,38 @@
 <?php 
   include_once "init.php";
-  session_start();
 
   if (isset($_POST['create'])) {
-    if ( !empty($_POST['judul_pengaduan']) || !empty($_POST['isi_pegaduan']) ) {
-      $file = $_FILES['foto'];
-      $target_file = "uploads/" . basename($file['name']); 
 
+    if ( !empty($_POST['judul_pengaduan']) && !empty($_POST['isi_pengaduan'])) {
+      if (!empty($_FILES['foto'])) {
+        $file = $_FILES['foto'];
+        $target_file = "uploads/" . basename($file['name']); 
+      }
+
+      
       $data = [
         "nik" => $Auth->current_user()->nik,
         "judul_pengaduan" => $_POST['judul_pengaduan'],
         "isi_pengaduan" => $_POST['isi_pengaduan'],
         "tgl_pengaduan" => date("Y/m/d"),
-        "foto" => $file['name'] ?? null
+        "foto" => $file ? $file['name'] : null
       ];
       
       $created = Pengaduan::insert($data);
 
       if ($created) {
-        $uploaded = move_uploaded_file($file['tmp_name'], $target_file);
-        echo "Pengaduan berhasil dibuat";
+        if (!empty($_FILES['foto'])) {
+          move_uploaded_file($file['tmp_name'], $target_file);
+        }
+        $success = "Pengaduan berhasil dibuat <a href='./history-pengaduan.php'>Lihat riwayat pengaduan</a>";
+        redirect("/history-pengaduan.php");
+      } else {
+        $error = "Data yang dimasukan tidak valid!";
       }
-
     } else {
-      echo "Tolong isi data yang valid";
+      $error = "Data yang dimasukan tidak valid!";
     }
-
+    
   }
 
 ?>
@@ -36,36 +43,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buat Pengaduan</title>
+  <link rel="stylesheet" href="<?= url('/assets/css/index.css') ?>">
 </head>
 <body>
-  <h1>Buat Pengaduan</h1>
-  <div>
-    <form action="" method="POST" enctype="multipart/form-data">
-      <div>
-        <label for="">Judul Pengaduan*</label>
-        <br>
-        <input type="text" name="judul_pengaduan">
-      </div>
-      <div>
-        <label for="">Isi Pengaduan*</label>
-        <br>
-        <textarea name="isi_pengaduan" cols="30" rows="10"></textarea>
-      </div>
-      <div>
-        <label for="">Foto (Opsional)</label>
-        <br>
-        <input type="file" name="foto">
-      </div>
-      <br>
-      <button type="submit" name="create">Kirim</button>
-    </form>
+  <div class='container' style="margin: 50px auto">
+    <div style="margin: 20px 0; color: red"><?= $error??null ?></div>
+    <div style="margin: 20px 0; color: green"><?= $success??null ?></div>
+
+    <h1 class='title-1'>Buat Pengaduan</h1>
+    <div style='width: 500px'>
+      <form action="" method="POST" enctype="multipart/form-data">
+        <div class='field-wrapper'>
+          <label class='label' for="">Judul Pengaduan*</label>
+          <input class='input' type="text" name="judul_pengaduan">
+        </div>
+        <div class='field-wrapper'>
+          <label class='label' for="">Isi Pengaduan*</label>
+          <textarea class='input' name="isi_pengaduan" cols="30" rows="10"></textarea>
+        </div>
+        <div class='field-wrapper'>
+          <label class='label' for="">Foto (Opsional)</label>
+          <input type="file" name="foto">
+        </div>
+        <button class='button-primary block' type="submit" name="create">Kirim</button>
+      </form>
+    </div>
   </div>
-  
-  <br>
-  <br>
-  <a href="history-pengaduan.php">Lihat semua pengaduan anda</a>
-
-
-
 </body>
 </html>

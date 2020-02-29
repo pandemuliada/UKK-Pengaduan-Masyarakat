@@ -20,7 +20,7 @@
       
       // Redirect to home if login success
       if ($Auth->current_user()) {
-        redirect("home.php");
+        redirect("/home.php");
       }
     } else {
       $error = "Data yang dimasukan tidak valid!";
@@ -38,6 +38,7 @@
     }
   }
 
+
 ?>
 
 
@@ -53,6 +54,7 @@
   
   <div style="width: 400px; margin: 0 auto">
     <div style="margin: 20px 0; color: red"><?= $error??null ?></div>
+    <h1 class='title-1'>Login Masyarakat</h1>
     <form action="" method="POST">
       <div class='field-wrapper'>
         <label class='label' for="">Username</label>
