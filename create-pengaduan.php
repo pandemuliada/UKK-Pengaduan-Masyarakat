@@ -47,9 +47,11 @@
 </head>
 <body>
   <div class='container' style="margin: 50px auto">
+
+    <a href="home.php" style="display: inline-block">Kembali</a>
+
     <div style="margin: 20px 0; color: red"><?= $error??null ?></div>
     <div style="margin: 20px 0; color: green"><?= $success??null ?></div>
-
     <h1 class='title-1'>Buat Pengaduan</h1>
     <div style='width: 500px'>
       <form action="" method="POST" enctype="multipart/form-data">
